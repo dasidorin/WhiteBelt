@@ -9,6 +9,7 @@ struct s_operations
 {
 	string operation;
 	string bus;
+	string current_stop;
 	int stop_count = 0;
 	vector <string> stops;
 };
@@ -49,6 +50,10 @@ void	print_s_operations(const s_operations& operations)
 		print_vector(operations.stops);
 		cout << endl;
 	}
+	if (!operations.current_stop.empty())
+	{
+		cout << "CURRENT STOP: " << operations.current_stop << endl;
+	}
 	cout << endl;
 }
 
@@ -73,8 +78,7 @@ vector <s_operations> parse_operations(const int& count_operations)
 		}
 		if (operations[i].operation == "BUSES_FOR_STOP")
 		{
-			cin >> current_stop;
-			operations[i].stops.push_back(current_stop);
+			cin >> operations[i].current_stop;
 		}
 		if (operations[i].operation == "STOPS_FOR_BUS")
 		{
@@ -86,6 +90,74 @@ vector <s_operations> parse_operations(const int& count_operations)
 
 bool execute_operations(const vector <s_operations>& operations, map <string, vector <string>>& buses, map <string, vector <string>>& stops)
 {
+	for (int i = 0; i < (int)operations.size(); i++)
+	{
+		if (operations[i].operation == "NEW_BUS")
+		{
+				buses[operations[i].bus] = operations[i].stops;
+				for (auto& s : operations[i].stops)
+				{
+					stops[s].push_back(operations[i].bus);
+				}
+		}
+		if (operations[i].operation == "BUSES_FOR_STOP")
+		{
+			if (stops.count(operations[i].current_stop) == 0)
+			{
+				cout << "No stop" << endl;
+			}
+			else
+			{
+				print_vector(stops[operations[i].current_stop]);
+				cout << endl;
+			}
+		}
+		if (operations[i].operation == "STOPS_FOR_BUS")
+		{
+			if (buses.count(operations[i].bus) == 0)
+			{
+				cout << "No bus" << endl;
+			}
+			else
+			{
+				for (auto b : buses[operations[i].bus])
+				{
+					cout << "Stop " << b << ": ";
+					if (stops.count(b) != 0)
+					{
+						for (auto& s : stops[b])
+						{
+							if (s != operations[i].bus)
+							{
+								cout << s << " ";
+							}
+						}
+						if (stops[b].size() == 1 && stops[b][0] == operations[i].bus)
+						{
+							cout << "no interchange";
+						}
+					}
+					cout << endl;
+				}
+			}
+		}
+		if (operations[i].operation == "ALL_BUSES")
+		{
+			if (buses.size() == 0)
+			{
+				cout << "No buses" << endl;
+			}
+			else
+			{
+				for (auto [key, value] : buses)
+				{
+					cout << "Bus " << key << ": ";
+					print_vector(value);
+					cout << endl;
+				}
+			}
+		}
+	}
 	return true;
 }
 
@@ -96,13 +168,8 @@ int main()
 
 	vector <s_operations> operations = parse_operations(count_operation);
 
-	cout << "\n\n" << "!!! TEST OUTPUT !!!" << "\n\n";
-	for (auto o : operations)
-	{
-		print_s_operations(o);
-	}
-
 	map <string, vector<string>> buses;
 	map <string, vector<string>> stops;
+	execute_operations(operations, buses, stops);
 	return 0;
 }
