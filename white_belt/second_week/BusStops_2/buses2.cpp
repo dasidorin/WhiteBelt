@@ -11,32 +11,6 @@ struct s_operations
 	vector <string>	stops;
 };
 
-template <typename T1>
-void print_vector(const vector <T1>& vtr)
-{
-	for (const auto& v : vtr)
-	{
-		cout << v << " ";
-	}
-}
-
-void print_vector_struct(const vector <s_operations>& operations)
-{
-	for (int i = 0; i < (int)operations.size(); ++i)
-	{
-		if (operations[i].stops_count != 0)
-		{
-			cout << "COUNT: " << operations[i].stops_count << endl;
-		}
-		if (operations[i].stops.size() != 0)
-		{
-			cout << "STOPS: ";
-			print_vector(operations[i].stops);
-			cout << endl;
-		}
-	}
-}
-
 vector <s_operations> parse_operations(const int& count_operations)
 {
 	vector <s_operations> operations (count_operations);
@@ -87,7 +61,6 @@ int main()
 {
 	int count_operations;
 	cin >> count_operations;
-
 	vector <s_operations> operations = parse_operations(count_operations);
 	execute_operations(operations);
 	return 0;

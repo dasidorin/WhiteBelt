@@ -1,44 +1,48 @@
-/*
-На вход вашей программы в стандартном потоке ввода подаются действительные коэффициенты
-A, B и C уравнения Ax² + Bx + C = 0.
-Выведите все его различные действительные корни в поток вывода в любом порядке,
-при этом разделяя корни пробелами. Гарантируется, что хотя бы один из коэффициентов уравнения не равен нулю.
-Пример
-stdin	stdout
-2 5 2 	-0.5 -2
-2 4 2 	-1
-2 1 2
-0 4 10	-2.5
-Подсказка
-Для вычисления квадратного корня используйте функцию sqrt из библиотеки cmath.
-Чтобы подключить библиотеку, в начале программы напишите
 #include <cmath>
-*/
-
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
-int main() {
-    double a, b, c, D, x;
+int main()
+{
+    double a, b, c;
 
     cin >> a >> b >> c;
-
-    D = sqrt(b * b - 4 * a * c);
-    if (D < 0)
+    double D, x;
+    
+    if (a == 0 && b != 0)
+    {
+        x = -c / b;
+        cout << x << endl;
         return 0;
-    else {
-        if (D == 0) {
-            x = -(b / 2 * a);
-            cout << x;
-        }
-        if (D > 0) {
-            x = - ((b - sqrt(D)) / (2 * a));
-            cout << x << " ";
-            x = - ((b + sqrt(D)) / (2 * a));
-            cout << x << " ";
-        }
+    }
+    else if (b == 0 && a == 0)
+    {
+        cout << endl;
+        return 0;
+    }
+    else if (c == 0 && a == 0)
+    {
+        x = 0;
+        cout << x << endl;
+        return 0;
+    }
+
+    D = b * b - 4 * a * c;
+    if (D > 0)
+    {
+        double x1 = (-b + sqrt(D)) / (2 * a);
+        double x2 = (-b - sqrt(D)) / (2 * a);
+        cout << x1 << " " << x2 << endl;
+    }
+    else if (D == 0)
+    {
+        x = -b / (2 * a);
+        cout << x << endl;
+    }
+    else
+    {
+        cout << endl;
     }
     return 0;
 }
