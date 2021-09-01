@@ -26,12 +26,9 @@ int main()
 			current_words.insert(word2);
 			if (action == "ADD")
 			{
-				if (words.count(current_words) == 0)
-				{
-					words.insert(current_words);
-					word_counter[word1] += 1;
-					word_counter[word2] += 1;
-				}
+				words.insert(current_words);
+				word_counter[word1] += 1;
+				word_counter[word2] += 1;
 			}
 			else if (action == "CHECK")
 			{
