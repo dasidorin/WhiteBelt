@@ -1,3 +1,0 @@
-/home/tberneic/CLionProjects/Names/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/tberneic/CLionProjects/Names/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/tberneic/CLionProjects/Names/cmake-build-debug/CMakeFiles/Names.dir
