@@ -1,0 +1,3 @@
+/home/dsidorin/learning/coursera/art_of_development_on_modern_cpp/white_belt/fourth_week/LectureTitle/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/dsidorin/learning/coursera/art_of_development_on_modern_cpp/white_belt/fourth_week/LectureTitle/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/dsidorin/learning/coursera/art_of_development_on_modern_cpp/white_belt/fourth_week/LectureTitle/cmake-build-debug/CMakeFiles/LectureTitle.dir
