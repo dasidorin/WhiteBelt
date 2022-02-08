@@ -6,11 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/dsidorin/Documents/learning/coursera/art_of_development_on_modern_cpp/white_belt/fourth_week/Rational/main.cpp
+/home/dsidorin/Documents/learning/coursera/art_of_development_on_modern_cpp/white_belt/fourth_week/EnsureEqual/main.cpp
 iostream
+-
+string
 -
 exception
 -
-stdexcept
+fstream
+-
+sstream
 -
 
