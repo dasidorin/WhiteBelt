@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/StudentsList.dir/main.cpp.o -o StudentsList 

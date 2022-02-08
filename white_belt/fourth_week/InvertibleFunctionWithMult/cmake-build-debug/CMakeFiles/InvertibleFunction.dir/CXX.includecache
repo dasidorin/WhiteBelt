@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dsidorin/Documents/learning/coursera/art_of_development_on_modern_cpp/white_belt/fourth_week/InvertibleFunctionWithMult/main.cpp
+iostream
+-
+vector
+-
+algorithm
+-
+
