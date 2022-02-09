@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/RationalCalc.dir/main.cpp.o -o RationalCalc 

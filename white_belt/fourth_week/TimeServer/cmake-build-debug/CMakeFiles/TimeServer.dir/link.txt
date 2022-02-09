@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/TimeServer.dir/main.cpp.o -o TimeServer 
